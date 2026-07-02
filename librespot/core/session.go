@@ -36,7 +36,7 @@ func StartSession(ctx *respot.SessionContext) (respot.Session, error) {
 	}
 
 	if s.ctx.DeviceUID == "" {
-		name := tag.NameFrom(s.ctx.DeviceName)
+		name := tag.HashName(s.ctx.DeviceName)
 		s.ctx.DeviceUID = name.ID.Base32()
 	}
 
