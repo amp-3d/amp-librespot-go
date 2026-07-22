@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"testing"
 
 	"github.com/art-media-platform/amp.SDK/stdlib/alog"
 	"github.com/art-media-platform/amp.SDK/stdlib/task"
@@ -14,25 +13,28 @@ import (
 	"github.com/art-media-platform/librespot-go/librespot/respot"
 )
 
-func TestDownload(t *testing.T) {
+// Interactive walk: Spotify OAuth in a browser, then search + pin + download
+// one track to disk. Run with SPOTIFY_* env credentials (see startSession).
+func main() {
 
 	host, _ := task.Start(task.Task{
 		Info: task.Info{
-			Label: "download-test",
+			Label: "download-example",
 		},
 		OnClosed: func() {
-			fmt.Println("download-test shutdown complete")
+			fmt.Println("download-example shutdown complete")
 		},
 	})
 
 	sess, err := startSession(host)
 	if err != nil {
-		t.Fatalf("startSession error: %v", err)
+		fmt.Fprintf(os.Stderr, "startSession error: %v\n", err)
+		os.Exit(1)
 	}
 
-	err = assetTests(sess)
-	if err != nil {
-		t.Fatalf("assetTests error: %v", err)
+	if err = downloadWalk(sess); err != nil {
+		fmt.Fprintf(os.Stderr, "download error: %v\n", err)
+		os.Exit(1)
 	}
 
 	gracefulStop, immediateStop := alog.AwaitInterrupt()
@@ -54,7 +56,7 @@ func TestDownload(t *testing.T) {
 	<-host.Done()
 }
 
-func assetTests(sess respot.Session) error {
+func downloadWalk(sess respot.Session) error {
 
 	funcSearch(sess, "CloudNone")
 
