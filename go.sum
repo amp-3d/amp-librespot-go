@@ -1,5 +1,5 @@
-github.com/art-media-platform/amp.SDK v0.273.0 h1:9cfZa+Bf+Bq/z8Hx4/mvWVOeaZgiRXxMdKAsTrKrvKY=
-github.com/art-media-platform/amp.SDK v0.273.0/go.mod h1:V1ned4BpTfA7xNs7JV+B/qHEU7pAsLLbb5TxEUVYnb8=
+github.com/art-media-platform/amp.SDK v0.281.0 h1:t63xaj9Fxt7oYVUwNC/x9Dw3Hg5ZAssGQXvnE2OMrQA=
+github.com/art-media-platform/amp.SDK v0.281.0/go.mod h1:xMOrS+jmGyN/aItJ6i8NO+PgrrIVZtZ0Vy9rLR4Ch+E=
 github.com/golang/protobuf v1.5.4 h1:i7eJL8qZTpSEXOPTxNKhASYpMn+8e5Q6AdndVa1dWek=
 github.com/golang/protobuf v1.5.4/go.mod h1:lnTiLA8Wa4RWRcIUkrtSVa5nRhsEGBg48fD6rSs7xps=
 github.com/google/go-cmp v0.7.0 h1:wk8382ETsv4JYUZwIsn6YpYiWiBsYLSJiTsyBybVuN8=
